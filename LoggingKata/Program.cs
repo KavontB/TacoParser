@@ -41,9 +41,38 @@ namespace LoggingKata
             double distance = 0.00;
             // Include the Geolocation toolbox, so you can compare locations: `using GeoCoordinatePortable;`
 
+
             //HINT NESTED LOOPS SECTION---------------------
             // Do a loop for your locations to grab each location as the origin (perhaps: `locA`)
-
+            var maxLocationA = " ";
+            var maxLocationB = " ";
+            double controlledDistance = 0;
+            for (int i = 0; i < locations.Length; i++)
+            {
+                trackableOne = locations[i];
+                GeoCoordinate locA = new GeoCoordinate(trackableOne.Location.Latitude, trackableOne.Location.Longitude);
+               
+                for (int j = 1; j < locations.Length; j++)
+                {
+                    
+                    tracableTwo = locations[j];
+                    GeoCoordinate locB = new GeoCoordinate(tracableTwo.Location.Latitude, tracableTwo.Location.Longitude);
+                    distance = locA.GetDistanceTo(locB);
+                    if (distance > controlledDistance)
+                    {
+                        controlledDistance = distance;
+                         maxLocationA = trackableOne.Name;
+                         maxLocationB = tracableTwo.Name;
+                    }
+                }
+               /* GeoCoordinate locB = new GeoCoordinate(tracableTwo.Location.Latitude, tracableTwo.Location.Longitude);
+                distance = locA.GetDistanceTo(locB);
+                
+                if (distance >= controlledDistance) ;
+                tracableTwo = locations[i + 1];*/
+            }
+            Console.WriteLine($"The farthes distance is from {maxLocationA} to {maxLocationB} {controlledDistance}");
+            Console.WriteLine($"Final Furthest Distance {controlledDistance}");
             // Create a new corA Coordinate with your locA's lat and long
 
             // Now, do another loop on the locations with the scope of your first loop, so you can grab the "destination" location (perhaps: `locB`)
@@ -54,9 +83,14 @@ namespace LoggingKata
             // If the distance is greater than the currently saved distance, update the distance and the two `ITrackable` variables you set above
 
             // Once you've looped through everything, you've found the two Taco Bells farthest away from each other.
+           
 
 
-            
         }
+        public static double ConvertToMiles(double meters)
+        {
+            
+            return meters / 1609.34;
+            }
     }
 }
