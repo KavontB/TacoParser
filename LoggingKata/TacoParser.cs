@@ -19,22 +19,22 @@
             {
                 // Log that and return null
                 logger.LogError("array length is less than 3", new System.Exception());
-                // Do not fail if one record parsing fails, return null
+                // Do not fail if one record parsing fails, return null (completed)
                 return null; // TODO Implement
             }
 
             // grab the latitude from your array at index 0
             // grab the longitude from your array at index 1
-            // grab the name from your array at index 2
+            // grab the name from your array at index 2(completed)
             var latitude = cells[0];
             var longitude = cells[1];
             var name = cells[2];
             // Your going to need to parse your string as a `double`
-            // which is similar to parsing a string as an `int`
+            // which is similar to parsing a string as an `int`(completed)
             var doubleLat = double.Parse(latitude);
             var doubleLon = double.Parse(longitude);
             // You'll need to create a TacoBell class
-            // that conforms to ITrackable
+            // that conforms to ITrackable (completed)
             var point = new Point();
             point.Latitude = doubleLat;
             point.Longitude = doubleLon;
@@ -47,7 +47,7 @@
             // With the name and point set correctly
 
             // Then, return the instance of your TacoBell class
-            // Since it conforms to ITrackable
+            // Since it conforms to ITrackable (COMPLETED)
 
             return tacoBell;
         }

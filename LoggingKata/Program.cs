@@ -71,7 +71,7 @@ namespace LoggingKata
                 if (distance >= controlledDistance) ;
                 tracableTwo = locations[i + 1];*/
             }
-            Console.WriteLine($"The farthes distance is from {maxLocationA} to {maxLocationB} {controlledDistance}");
+            Console.WriteLine($"The farthest distance is from {maxLocationA} to {maxLocationB} {controlledDistance}");
             Console.WriteLine($"Final Furthest Distance {controlledDistance}");
             // Create a new corA Coordinate with your locA's lat and long
 
